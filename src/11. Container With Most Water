@@ -1,0 +1,16 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int sum = 0;
+        int p=0, q=height.length-1;
+        while(p!=q){
+            sum = Math.max(sum, (q-p)*Math.min(height[p],height[q]));
+            // 因为距离必然减 1， 所以朝着高度越高的方向减。
+            if (height[p]<height[q]){
+                ++p;
+            }
+            else --q;
+
+        }
+        return sum;
+    }
+}
